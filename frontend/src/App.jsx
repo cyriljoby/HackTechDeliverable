@@ -1,14 +1,21 @@
 import "./App.css";
+import { useEffect } from "react";
+import { useAppContext } from "./AppContext";
 
 function App() {
-	return (
-		<div className="App">
-			{/* TODO: include an icon for the quote book */}
-			<h1>Hack at UCI Tech Deliverable</h1>
+  const { quotes, fetchQuotes } = useAppContext();
 
-			<h2>Submit a quote</h2>
-			{/* TODO: implement custom form submission logic to not refresh the page */}
-			<form action="/api/quote" method="post">
+  useEffect(() => {
+    fetchQuotes(); // Fetch quotes on component mount
+  }, []);
+
+
+  return (
+    <div className="App">
+      <h1>Hack at UCI Tech Deliverable</h1>
+
+      <h2>Submit a quote</h2>
+      <form action="/api/quote" method="post">
 				<label htmlFor="input-name">Name</label>
 				<input type="text" name="name" id="input-name" required />
 				<label htmlFor="input-message">Quote</label>
@@ -16,15 +23,15 @@ function App() {
 				<button type="submit">Submit</button>
 			</form>
 
-			<h2>Previous Quotes</h2>
-			{/* TODO: Display the actual quotes from the database */}
-			<div className="messages">
-				<p>Peter Anteater</p>
-				<p>Zot Zot Zot!</p>
-				<p>Every day</p>
-			</div>
-		</div>
-	);
+      <h2>Previous Quotes</h2>
+      <div className="messages">
+		{quotes.map((quote, index)=>(
+			<p key={index}><b>{quote.name}</b>: {quote.message}</p>
+		))}
+	
+      </div>
+    </div>
+  );
 }
 
 export default App;
