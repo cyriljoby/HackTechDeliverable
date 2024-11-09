@@ -2,14 +2,14 @@ import "./App.css";
 import { useEffect } from "react";
 import { useAppContext } from "./AppContext";
 import Quote from "./components/Quote";
-// import DateSelect from "./components/DateSelect";
+import DateSelect from "./components/DateSelect";
 
 function App() {
-  const { quotes, fetchQuotes } = useAppContext();
+  const { quotes, fetchQuotes, range } = useAppContext();
 
   useEffect(() => {
-    fetchQuotes(); // Fetch quotes on component mount
-  }, []);
+    fetchQuotes(range); // Fetch quotes on component mount
+  }, [range]);
 
   return (
     <div className="App">
@@ -24,7 +24,9 @@ function App() {
 		<button type="submit">Submit</button>
 	</form>
 
+	<DateSelect/>
 
+	
 
 		
       <h2>Previous Quotes</h2>

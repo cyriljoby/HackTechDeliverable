@@ -7,6 +7,8 @@ from fastapi.responses import RedirectResponse
 from typing_extensions import TypedDict
 
 from services.database import JSONDatabase
+from datetime import datetime, timedelta
+
 
 
 class Quote(TypedDict):
@@ -49,8 +51,22 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
 @app.get("/quote")
-def get_messages(max_age:int=0):
+def get_messages(range: str = ''):
     '''
         retrieve quotes that are newer than max_age
     '''
-    return database["quotes"]
+
+    quotes_in_range = []
+    now = datetime.now()
+    if range == "week":
+        cutoff_date = now - timedelta(weeks=1)
+    elif range == "year":
+        cutoff_date = datetime(now.year - 1, now.month, now.day)  
+    elif range == "month":
+        cutoff_date = now - timedelta(days=30) 
+    elif range == "all":
+        return database["quotes"]
+    for quote in database["quotes"]:
+        if datetime.fromisoformat(quote["time"]) >= cutoff_date:
+            quotes_in_range.append(quote)
+    return quotes_in_range

@@ -9,28 +9,35 @@ export const useAppContext = () => useContext(AppContext);
 // Provider component
 export const AppProvider = ({ children }) => {
   const [quotes, setQuotes] = useState([]);
+  const [range, setRange] = useState('all');
 
   // Fetch quotes from the API
-  const fetchQuotes = async () => {
+  const fetchQuotes = async (range) => {
     try {
-      const response = await fetch("/api/quote");
+      console.log(range)
+      const response = await fetch(`/api/quote?range=${range}`);
       if (!response.ok) throw new Error("Failed to fetch quotes.");
       const data = await response.json();
       console.log(data)
       setQuotes(data);
-      console.log("Updated quotes state:", quotes); // This will show the previous state due to closure
-
     } catch (error) {
       console.error("Error fetching quotes:", error);
     }
   };
+
+  const handleFilterChange = async (selectedRange)=>{
+    console.log(selectedRange)
+    setRange(selectedRange)
+  }
 
  
 
   // Context value
   const contextValue = {
     quotes,
-    fetchQuotes
+    fetchQuotes,
+    handleFilterChange,
+    range
   };
   
 
