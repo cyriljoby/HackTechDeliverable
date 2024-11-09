@@ -94,6 +94,76 @@
 			"name": "cyril",
 			"message": "dsf",
 			"time": "2023-11-08T00:15:04"
+		},
+		{
+			"name": "asd",
+			"message": "sad",
+			"time": "2024-11-08T22:09:41"
+		},
+		{
+			"name": "cyril",
+			"message": "hello",
+			"time": "2024-11-08T22:10:20"
+		},
+		{
+			"name": "fgdfg",
+			"message": "fdggdf",
+			"time": "2024-11-08T22:10:42"
+		},
+		{
+			"name": "dsf",
+			"message": "sdf",
+			"time": "2024-11-08T22:10:52"
+		},
+		{
+			"name": "ads",
+			"message": "asd",
+			"time": "2024-11-08T22:12:16"
+		},
+		{
+			"name": "hi",
+			"message": "newest",
+			"time": "2024-11-08T22:12:33"
+		},
+		{
+			"name": "dsf",
+			"message": "sdf",
+			"time": "2024-11-08T22:14:56"
+		},
+		{
+			"name": "dsf",
+			"message": "sdf",
+			"time": "2024-11-08T22:16:15"
+		},
+		{
+			"name": "sdf",
+			"message": "sdf",
+			"time": "2024-11-08T22:17:37"
+		},
+		{
+			"name": "daf",
+			"message": "dsf",
+			"time": "2024-11-08T22:17:48"
+		},
+		{
+			"name": "Meee",
+			"message": "This quote is quite a bit longer than the other ones just to make things interesting. This shouldn't be too difficult to handle, but your design should be able to adapt to all sorts of edge cases. Will your application be able to handle this properly? Or will the text spill over atrociously or even get cut off? Also, how are you doing? I hope you're doing well. Have a Hack at UCI day!",
+			"time": "2024-11-08T22:18:49"
+		},
+		{
+			"name": "cj",
+			"message": "burger and fries",
+			"time": "2024-11-08T22:20:38"
+		},
+		{
+			"name": "cj",
+			"message": "donuts",
+			"time": "2024-11-08T22:20:47"
+		},
+		{
+			"name": "df",
+			"message": "sdf",
+			"time": "2024-11-08T22:38:56"
 		}
 	]
 }

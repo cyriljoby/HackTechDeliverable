@@ -1,0 +1,31 @@
+/* Quote.css */
+.quote-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .quote-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .quote-time {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  
+  .quote-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  .quote-text strong {
+    color: #2c3e50;
+  }
+  

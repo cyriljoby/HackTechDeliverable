@@ -45,9 +45,9 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     quote = Quote(name=name, message=message, time=now.isoformat(timespec="seconds"))
     database["quotes"].append(quote)
 
-    # You may modify the return value as needed to support other functionality
-    return RedirectResponse("/", status.HTTP_303_SEE_OTHER)
 
+    # You may modify the return value as needed to support other functionality
+    return quote
 
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
 @app.get("/quote")
@@ -69,4 +69,5 @@ def get_messages(range: str = ''):
     for quote in database["quotes"]:
         if datetime.fromisoformat(quote["time"]) >= cutoff_date:
             quotes_in_range.append(quote)
-    return quotes_in_range
+    print(quotes_in_range[::-1])
+    return quotes_in_range[::-1] #makes most recent quote first by reversing list
