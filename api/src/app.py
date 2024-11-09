@@ -65,9 +65,8 @@ def get_messages(range: str = ''):
     elif range == "month":
         cutoff_date = now - timedelta(days=30) 
     elif range == "all":
-        return database["quotes"]
+        return database["quotes"][::-1]
     for quote in database["quotes"]:
         if datetime.fromisoformat(quote["time"]) >= cutoff_date:
             quotes_in_range.append(quote)
-    print(quotes_in_range[::-1])
     return quotes_in_range[::-1] #makes most recent quote first by reversing list
